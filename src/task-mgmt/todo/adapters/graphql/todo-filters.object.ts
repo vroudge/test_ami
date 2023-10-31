@@ -1,5 +1,5 @@
 import { Field, ID, InputType } from "@nestjs/graphql";
-import { TODO_STATUS } from "../../infra/todo.entity";
+import { TODO_STATUS } from "../../infra/todo/todo.entity";
 
 @InputType()
 export class TodoFilters {

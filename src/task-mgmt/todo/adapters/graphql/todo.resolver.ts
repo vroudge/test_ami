@@ -2,7 +2,7 @@ import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
 import { TodoGraphql } from "./todo.object";
 import { PaginationArgs } from "../../lib/pagination-args.object";
 import { TodoFilters } from "./todo-filters.object";
-import { TodoRepository } from "../../infra/todo.repository";
+import { TodoRepository } from "../../infra/todo/todo.repository";
 import { CommandBus, QueryBus } from "@nestjs/cqrs";
 import { FindTodosQuery } from "../../domain/queries/find-todos/find-todos.query";
 import { TodoMapper } from "../../dtos/todo.mapper";

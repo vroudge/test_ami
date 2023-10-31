@@ -3,7 +3,7 @@ import { TODO_STATUS, TodoEntity } from "./todo.entity";
 import { Injectable } from "@nestjs/common";
 import { In, Repository } from "typeorm";
 import { ObjectType } from "@nestjs/graphql";
-import { PaginationArgs } from "../lib/pagination-args.object";
+import { PaginationArgs } from "../../lib/pagination-args.object";
 
 @Injectable()
 /**
@@ -35,8 +35,12 @@ export class TodoRepository {
     return this.todoRepo.find({ where: query, take, skip });
   }
 
-  public createTodo(title: string, description: string): Promise<TodoEntity> {
-    const todo = this.todoRepo.create({ title, description });
+  public createTodo(
+    title: string,
+    description?: string,
+    status?: TODO_STATUS,
+  ): Promise<TodoEntity> {
+    const todo = this.todoRepo.create({ title, description, status });
     return this.todoRepo.save(todo);
   }
 }

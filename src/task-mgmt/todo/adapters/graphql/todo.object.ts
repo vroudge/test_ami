@@ -1,5 +1,5 @@
 import { Field, ID, ObjectType, registerEnumType } from "@nestjs/graphql";
-import { TODO_STATUS } from "../../infra/todo.entity";
+import { TODO_STATUS } from "../../infra/todo/todo.entity";
 
 registerEnumType(TODO_STATUS, {
   name: "TODO_STATUS",

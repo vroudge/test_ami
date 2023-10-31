@@ -4,6 +4,7 @@ import {
   DeleteDateColumn,
   Entity,
   PrimaryGeneratedColumn,
+  Unique,
   UpdateDateColumn,
 } from "typeorm";
 
@@ -21,6 +22,10 @@ export class TodoEntity {
 
   @PrimaryGeneratedColumn("uuid")
   public id: string;
+
+  @Column({ type: "varchar", length: 255 })
+  @Unique("vendorId", ["vendorId"])
+  public vendorId: string;
 
   @Column({ type: "varchar", length: 255 })
   public title: string;

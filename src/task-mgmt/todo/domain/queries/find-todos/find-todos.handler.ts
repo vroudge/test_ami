@@ -1,7 +1,7 @@
 import { IQuery, IQueryHandler, QueryHandler } from "@nestjs/cqrs";
 import { FindTodosQuery } from "./find-todos.query";
-import { TodoRepository } from "../../../infra/todo.repository";
-import { TodoEntity } from "../../../infra/todo.entity";
+import { TodoRepository } from "../../../infra/todo/todo.repository";
+import { TodoEntity } from "../../../infra/todo/todo.entity";
 
 @QueryHandler(FindTodosQuery)
 export class FindTodosHandler implements IQueryHandler<FindTodosQuery> {

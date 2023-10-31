@@ -65,6 +65,9 @@ input CreateTodoInput {
   """The name of the task"""
   title: String!
 
+  """The status of the task"""
+  status: TODO_STATUS!
+
   """The content of the task"""
   description: String!
 }

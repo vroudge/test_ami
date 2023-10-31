@@ -4,11 +4,14 @@ import { GraphQLModule } from "@nestjs/graphql";
 import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 import { join } from "path";
 import { TodoModule } from "./todo/todo.module";
-import { TodoEntity } from "./todo/infra/todo.entity";
-import { CqrsModule } from "@nestjs/cqrs";
+import { TodoEntity } from "./todo/infra/todo/todo.entity";
+import { ConfigModule } from "@nestjs/config";
+import { WebhooksController } from "./todo/adapters/http-webhooks/webhooks.controller";
+
 @Module({
   imports: [
     TodoModule,
+    ConfigModule.forRoot({ isGlobal: true, envFilePath: ".env" }),
     // deals with setting up the graphql server, the playground, etc.
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
@@ -31,7 +34,7 @@ import { CqrsModule } from "@nestjs/cqrs";
       synchronize: true,
     }),
   ],
-  controllers: [],
+  controllers: [WebhooksController],
   providers: [],
   exports: [],
 })

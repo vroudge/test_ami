@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
 import { TodoResolver } from "./adapters/graphql/todo.resolver";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { TodoEntity } from "./infra/todo.entity";
-import { TodoRepository } from "./infra/todo.repository";
+import { TodoEntity } from "./infra/todo/todo.entity";
+import { TodoRepository } from "./infra/todo/todo.repository";
 import { FindTodosHandler } from "./domain/queries/find-todos/find-todos.handler";
 import { CqrsModule } from "@nestjs/cqrs";
 import { TodoMapper } from "./dtos/todo.mapper";

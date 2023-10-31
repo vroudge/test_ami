@@ -14,6 +14,10 @@ bun start
 
 This project was created using `bun init` in bun v1.0.7. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
 
+TODO
+[ ] class-validator on graphql inputs to ensure clean format
+[ ] figure out an external service to use
+[ ] create all the popote for two-directions sync
 -------------------------
 
 # Todo service
