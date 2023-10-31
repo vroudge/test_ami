@@ -1,0 +1,70 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TodoGraphql {
+  """The id of the task"""
+  id: ID!
+
+  """The name of the task"""
+  title: String!
+
+  """The content of the task"""
+  description: String!
+
+  """The status of the task"""
+  status: TODO_STATUS!
+
+  """The date of creation of the task"""
+  createdAt: DateTime!
+
+  """The name of the media"""
+  updatedAt: DateTime!
+}
+
+"""The possible states of a todo"""
+enum TODO_STATUS {
+  TODO
+  IN_PROGRESS
+  DONE
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  todos(filters: TodoFilters, pagination: PaginationArgs): [TodoGraphql!]
+}
+
+input TodoFilters {
+  """The ids of the tasks we're looking for"""
+  ids: [ID!]
+
+  """A simple search on the name of the task"""
+  nameSearch: String
+
+  """The statuses of the tasks we're looking for"""
+  statuses: [TODO_STATUS!]
+}
+
+input PaginationArgs {
+  """The limit of the query"""
+  limit: Float! = 10
+
+  """The offset of the query"""
+  offset: Float! = 0
+}
+
+type Mutation {
+  createTodo(input: CreateTodoInput!): TodoGraphql!
+}
+
+input CreateTodoInput {
+  """The name of the task"""
+  title: String!
+
+  """The content of the task"""
+  description: String!
+}
