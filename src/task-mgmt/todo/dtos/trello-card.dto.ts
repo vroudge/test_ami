@@ -9,6 +9,8 @@ export class TrelloCardDto {
 
   public listName: string;
 
+  public closed: boolean = false;
+
   public createdAt?: Date;
 
   public updatedAt?: Date;

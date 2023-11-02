@@ -15,9 +15,14 @@ bun start
 This project was created using `bun init` in bun v1.0.7. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
 
 TODO
-[ ] class-validator on graphql inputs to ensure clean format
 [ ] figure out an external service to use
 [ ] create all the popote for two-directions sync
+
+### Shortcuts
+
+- Given the number of different sources a task could have, it should probably be an event-sourced model rather than a dumb model like mine. Projections are nice in eventually consistent systems.
+- For simplicity I don't expose real domain entities. Not ideal, but easier than being too much by the book and dealing with domain entities, repositories, etc.
+- I don't deep check/sanitize my DTOs using something like class-validator, it's a MUST in production but time consuming and I'd rather show you something more interesting than validation.
 -------------------------
 
 # Todo service

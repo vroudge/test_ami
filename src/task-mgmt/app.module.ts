@@ -7,6 +7,7 @@ import { TodoModule } from "./todo/todo.module";
 import { TodoEntity } from "./todo/infra/todo/todo.entity";
 import { ConfigModule } from "@nestjs/config";
 import { WebhooksController } from "./todo/adapters/http-webhooks/webhooks.controller";
+import { EventBus } from "@nestjs/cqrs";
 
 @Module({
   imports: [
@@ -34,7 +35,7 @@ import { WebhooksController } from "./todo/adapters/http-webhooks/webhooks.contr
       synchronize: true,
     }),
   ],
-  controllers: [WebhooksController],
+  controllers: [],
   providers: [],
   exports: [],
 })
